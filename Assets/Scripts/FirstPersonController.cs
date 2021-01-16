@@ -91,4 +91,5 @@ public class FirstPersonController : MonoBehaviour
         transform.Rotate(0, Input.GetAxisRaw("Mouse X") * Time.deltaTime * _viewCamera.Sensitivity, 0);
 
     }
+
 }

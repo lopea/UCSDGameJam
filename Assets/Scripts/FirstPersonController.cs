@@ -18,6 +18,9 @@ public class FirstPersonController : MonoBehaviour
     [SerializeField]
     private float _Gravity = 20.0f;
 
+    [SerializeField]
+    private float _JumpHeight = 15.0f;
+
     /// <summary>
     /// Unity's controller System
     /// </summary>
@@ -54,26 +57,33 @@ public class FirstPersonController : MonoBehaviour
     void Update()
     {
         bool isGrounded = controller.isGrounded;
-
+        Vector3 input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         //dont apply gravity if the player is grounded
         if (isGrounded && playerVelocity.y < 0)
             playerVelocity.y = 0;
+
+        
 
         //if the player is currently on the floor
         if (isGrounded)
         {
             //Get the status of the current input
-            playerVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * _Speed;
+            playerVelocity = input * _Speed;
 
             //apply jumping
             if (Input.GetButton("Jump"))
             {
-                playerVelocity.y = 10.0f;
+                playerVelocity.y = _JumpHeight;
             }
             playerVelocity = transform.TransformDirection(playerVelocity);
         }
         else
         {
+            float yValue = playerVelocity.y;
+            //Get the status of the current input
+            playerVelocity = input * _Speed* 0.5f;
+            playerVelocity = transform.TransformDirection(playerVelocity);
+            playerVelocity.y = yValue;
             //apply gravity
             playerVelocity.y -= _Gravity * Time.deltaTime;
         }

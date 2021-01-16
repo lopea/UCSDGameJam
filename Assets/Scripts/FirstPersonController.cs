@@ -21,6 +21,9 @@ public class FirstPersonController : MonoBehaviour
     [SerializeField]
     private float _JumpHeight = 15.0f;
 
+    [SerializeField]
+    private float _JumpStrafeMultiplier = 0.5f;
+
     /// <summary>
     /// Unity's controller System
     /// </summary>
@@ -81,7 +84,7 @@ public class FirstPersonController : MonoBehaviour
         {
             float yValue = playerVelocity.y;
             //Get the status of the current input
-            playerVelocity = input * _Speed* 0.5f;
+            playerVelocity = input * _Speed * _JumpStrafeMultiplier;
             playerVelocity = transform.TransformDirection(playerVelocity);
             playerVelocity.y = yValue;
             //apply gravity

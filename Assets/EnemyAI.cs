@@ -76,27 +76,28 @@ public class EnemyAI : MonoBehaviour
     private void Chasing()
     {
         agent.SetDestination(player_transform.position);
+        transform.LookAt(player_transform);
     }
 
     private void AttackPlayer()
     {
         // Enemy won't move during attack
         agent.SetDestination(transform.position);
-
         transform.LookAt(player_transform);
-    }
-
-    private void ResetAttack()
-    {
         if (!attack_cooldown)
         {
             // Attack code here
             Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32.0f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 8.0f, ForceMode.Impulse);
+            rb.AddForce(transform.forward * 16.0f, ForceMode.Impulse);
+            rb.AddForce(transform.up * 4.0f, ForceMode.Impulse);
             attack_cooldown = true;
             Invoke(nameof(ResetAttack), attack_rate);
         }
+    }
+
+    private void ResetAttack()
+    {
+        attack_cooldown = false;
     }
 
     // Update is called once per frame

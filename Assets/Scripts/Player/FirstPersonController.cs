@@ -88,7 +88,8 @@ public class FirstPersonController : MonoBehaviour
             if (input.sqrMagnitude != 0)
             {
                 //Get the status of the current input
-                playerVelocity = input.normalized * CurrentSpeed;
+                playerVelocity = ((input.sqrMagnitude > 1 ) ? input.normalized : input) * CurrentSpeed;
+
 
                 CurrentSpeed += Acceleration * Time.deltaTime;
                 CurrentSpeed = Mathf.Clamp(CurrentSpeed, 0, _Speed);

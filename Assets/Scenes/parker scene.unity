@@ -1018,7 +1018,7 @@ MonoBehaviour:
     m_Bits: 128
   walk_point: {x: 0, y: 0, z: 0}
   walk_point_range: 5
-  attack_rate: 0.1
+  attack_rate: 1
   projectile: {fileID: 4395390700298153795, guid: 39cae15942a3e20439c47a1c0eecb1ac, type: 3}
   sight_range: 15
   attack_range: 5

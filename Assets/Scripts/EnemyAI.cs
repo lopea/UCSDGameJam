@@ -37,6 +37,7 @@ public class EnemyAI : MonoBehaviour
     {
         player_transform = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+        death_particles = GetComponent<ParticleSystem>();
     }
 
     private void Patrolling()
@@ -127,7 +128,7 @@ public class EnemyAI : MonoBehaviour
             AttackPlayer();
         }
 
-        if (Input.GetKeyDown("x"))
+        if (Input.GetKeyDown("space"))
         {
             DestoryEnemy();
         }
@@ -144,7 +145,6 @@ public class EnemyAI : MonoBehaviour
     
     private void DestoryEnemy()
     {
-        death_particles = Instantiate(death_particles, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 }

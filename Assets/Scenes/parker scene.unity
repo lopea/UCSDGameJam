@@ -723,7 +723,7 @@ MonoBehaviour:
   walk_point: {x: 0, y: 0, z: 0}
   walk_point_range: 10
   attack_rate: 1
-  projectile: {fileID: 1963127916781506431, guid: 068ac1149648f2841bf9292e4325be5d, type: 3}
+  projectile: {fileID: 7290556701320199545, guid: 5ccd04ec2f906094ea20ef8ea48a2134, type: 3}
   sight_range: 20
   attack_range: 10
   player_seen: 0

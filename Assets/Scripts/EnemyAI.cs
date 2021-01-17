@@ -87,7 +87,7 @@ public class EnemyAI : MonoBehaviour
         if (!attack_cooldown)
         {
             // Attack code here
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            Rigidbody rb = Instantiate(projectile, transform.position + GlobalVariableStorage.EnemyShotgunOffset, Quaternion.identity).GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * 32.0f, ForceMode.Impulse);
             rb.AddForce(transform.up * 1.0f, ForceMode.Impulse);
             attack_cooldown = true;

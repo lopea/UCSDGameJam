@@ -711,14 +711,14 @@ MonoBehaviour:
   agent: {fileID: 1201414674}
   player_transform: {fileID: 415500881}
   layer_ground:
-    serializedVersion: 2
     m_Bits: 64
   layer_player:
-    serializedVersion: 2
     m_Bits: 128
   walk_point: {x: 0, y: 0, z: 0}
+  point_set: 0
   walk_point_range: 5
-  attack_rate: 0.1
+  attack_rate: 1
+  attack_cooldown: 0
   projectile: {fileID: 4395390700298153795, guid: 39cae15942a3e20439c47a1c0eecb1ac, type: 3}
   sight_range: 15
   attack_range: 5

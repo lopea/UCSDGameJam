@@ -577,6 +577,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 5838667655930477303, guid: dbbf2c9d805989f4cad2d4d4f838ce49, type: 3}
+      propertyPath: bMat
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbbf2c9d805989f4cad2d4d4f838ce49, type: 3}
 --- !u!1 &1140350247
@@ -719,11 +723,12 @@ MonoBehaviour:
   walk_point: {x: 0, y: 0, z: 0}
   walk_point_range: 10
   attack_rate: 1
-  projectile: {fileID: 1963127916781506431, guid: 068ac1149648f2841bf9292e4325be5d, type: 3}
+  projectile: {fileID: 7290556701320199545, guid: 5ccd04ec2f906094ea20ef8ea48a2134, type: 3}
   sight_range: 20
   attack_range: 10
   player_seen: 0
   player_in_range: 0
+  death_particles: {fileID: 360945738159570394, guid: f780bdb846431c2489ad51c70a367345, type: 3}
 --- !u!195 &1201414674
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -755,7 +760,7 @@ BoxCollider:
   m_GameObject: {fileID: 1201414672}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}

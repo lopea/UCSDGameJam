@@ -29,11 +29,15 @@ public class EnemyAI : MonoBehaviour
     public float sight_range, attack_range;
     public bool player_seen, player_in_range;
 
+    // Particles
+    public ParticleSystem death_particles;
+
     // Set these variables on game start.
     private void Awake()
     {
         player_transform = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+        death_particles = GetComponent<ParticleSystem>();
     }
 
     private void Patrolling()
@@ -122,6 +126,11 @@ public class EnemyAI : MonoBehaviour
         if (player_seen && player_in_range)
         {
             AttackPlayer();
+        }
+
+        if (Input.GetKeyDown("space"))
+        {
+            DestoryEnemy();
         }
     }
 

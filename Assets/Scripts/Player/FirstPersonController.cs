@@ -24,6 +24,11 @@ public class FirstPersonController : MonoBehaviour
     [SerializeField]
     private float _JumpStrafeMultiplier = 0.5f;
 
+    [SerializeField]
+    private float Acceleration = 1.0f;
+
+    public ParticleSystem system;
+
     /// <summary>
     /// Unity's controller System
     /// </summary>
@@ -35,6 +40,9 @@ public class FirstPersonController : MonoBehaviour
 
     private PlayerCamera _viewCamera;
 
+    private bool isGrounded = false;
+    private float CurrentSpeed = 0.0f;
+    private Vector3 jumpVelocity;
     // Start is called before the first frame update
     void Start()
     {
@@ -59,39 +67,61 @@ public class FirstPersonController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool isGrounded = controller.isGrounded;
+        isGrounded = controller.isGrounded;
         Vector3 input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         //dont apply gravity if the player is grounded
         if (isGrounded && playerVelocity.y < 0)
             playerVelocity.y = 0;
 
-        
+
 
         //if the player is currently on the floor
         if (isGrounded)
         {
-            //Get the status of the current input
-            playerVelocity = input * _Speed;
+            //if the player landed from jumping
+            if (isJumping)
+            {
+
+                //set the flag to the proper value
+                isJumping = false;
+            }
+            if (input.sqrMagnitude != 0)
+            {
+                //Get the status of the current input
+                playerVelocity = ((input.sqrMagnitude > 1 ) ? input.normalized : input) * CurrentSpeed;
+
+
+                CurrentSpeed += Acceleration * Time.deltaTime;
+                CurrentSpeed = Mathf.Clamp(CurrentSpeed, 0, _Speed);
+            }
+            else
+            {
+                playerVelocity = Vector3.zero;
+                CurrentSpeed = 0;
+            }
 
             //apply jumping
             if (Input.GetButton("Jump"))
             {
                 playerVelocity.y = _JumpHeight;
+                isJumping = true;
             }
             playerVelocity = transform.TransformDirection(playerVelocity);
         }
-        else
+        if(isJumping)
         {
             float yValue = playerVelocity.y;
             //Get the status of the current input
-            playerVelocity = transform.TransformDirection(input * _Speed * _JumpStrafeMultiplier);
-            
+            playerVelocity +=  input * _JumpStrafeMultiplier;
             playerVelocity.y = yValue;
+            
             //apply gravity
-            playerVelocity.y -= _Gravity * Time.deltaTime;
+
         }
 
-        //apply rotation
+        //apply Acceleration
+
+            playerVelocity.y -= _Gravity * Time.deltaTime;
 
 
 

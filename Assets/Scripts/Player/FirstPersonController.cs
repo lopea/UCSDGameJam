@@ -112,7 +112,7 @@ public class FirstPersonController : MonoBehaviour
         {
             float yValue = playerVelocity.y;
             //Get the status of the current input
-            playerVelocity +=  input * _JumpStrafeMultiplier;
+            playerVelocity += transform.TransformDirection( input * _JumpStrafeMultiplier);
             playerVelocity.y = yValue;
             
             //apply gravity

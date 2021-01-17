@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Prefab/Test Bullet 1.prefab.meta
 guid: 068ac1149648f2841bf9292e4325be5d
+=======
+guid: e268ebb96b74cb84095b3286f4f0e53e
+>>>>>>> d8966f88b61a8145ddbd0c97b300859fe1099a69:Assets/Prefab/Test Bullet.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

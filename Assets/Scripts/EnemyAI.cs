@@ -128,7 +128,7 @@ public class EnemyAI : MonoBehaviour
             AttackPlayer();
         }
 
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("x"))
         {
             DestoryEnemy();
         }

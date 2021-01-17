@@ -724,6 +724,7 @@ MonoBehaviour:
   attack_range: 10
   player_seen: 0
   player_in_range: 0
+  death_particles: {fileID: 360945738159570394, guid: f780bdb846431c2489ad51c70a367345, type: 3}
 --- !u!195 &1201414674
 NavMeshAgent:
   m_ObjectHideFlags: 0

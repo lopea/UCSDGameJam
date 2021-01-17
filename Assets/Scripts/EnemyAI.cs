@@ -29,11 +29,15 @@ public class EnemyAI : MonoBehaviour
     public float sight_range, attack_range;
     public bool player_seen, player_in_range;
 
+    // Particles
+    public ParticleSystem death_particles;
+
     // Set these variables on game start.
     private void Awake()
     {
         player_transform = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+        death_particles = GetComponent<ParticleSystem>();
     }
 
     private void Patrolling()
@@ -87,7 +91,7 @@ public class EnemyAI : MonoBehaviour
         if (!attack_cooldown)
         {
             // Attack code here
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            Rigidbody rb = Instantiate(projectile, transform.position + GlobalVariableStorage.EnemyShotgunOffset, Quaternion.identity).GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * 32.0f, ForceMode.Impulse);
             rb.AddForce(transform.up * 1.0f, ForceMode.Impulse);
             attack_cooldown = true;
@@ -122,6 +126,11 @@ public class EnemyAI : MonoBehaviour
         if (player_seen && player_in_range)
         {
             AttackPlayer();
+        }
+
+        if (Input.GetKeyDown("space"))
+        {
+            DestoryEnemy();
         }
     }
 

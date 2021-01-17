@@ -704,24 +704,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1201414672}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20ed5aebb7689f249bdae732a7129b6f, type: 3}
+  m_Script: {fileID: 11500000, guid: 91ec5364b3d24984a8c40ae360ca3d02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
   agent: {fileID: 1201414674}
   player_transform: {fileID: 415500881}
   layer_ground:
+    serializedVersion: 2
     m_Bits: 64
   layer_player:
+    serializedVersion: 2
     m_Bits: 128
   walk_point: {x: 0, y: 0, z: 0}
-  point_set: 0
-  walk_point_range: 5
+  walk_point_range: 10
   attack_rate: 1
-  attack_cooldown: 0
-  projectile: {fileID: 4395390700298153795, guid: 39cae15942a3e20439c47a1c0eecb1ac, type: 3}
-  sight_range: 15
-  attack_range: 5
+  projectile: {fileID: 1963127916781506431, guid: 068ac1149648f2841bf9292e4325be5d, type: 3}
+  sight_range: 20
+  attack_range: 10
   player_seen: 0
   player_in_range: 0
 --- !u!195 &1201414674

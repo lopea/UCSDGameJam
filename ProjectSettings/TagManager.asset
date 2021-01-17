@@ -3,10 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - _EnemyTarget
-  - _Environment
-  - _Enemy
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -15,11 +12,7 @@ TagManager:
   - Water
   - UI
   - Terrain
-<<<<<<< HEAD
-  - 
-=======
   - Player
->>>>>>> 2faf6c32628902478b0aab5fbdf578610bac78a5
   - 
   - 
   - 

@@ -9,9 +9,6 @@ public class GlobalVariableStorage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ShotgunOffset.x = 0;
-        ShotgunOffset.y = 0;
-        ShotgunOffset.z = 0;
         EnemyTargetThePlayer = transform;
         EnemyShotgunOffset = transform.position;
     }

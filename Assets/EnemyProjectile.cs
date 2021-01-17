@@ -6,6 +6,7 @@ public class EnemyProjectile : MonoBehaviour
 {
     public float lifetime;
     float current_lifetime;
+    [SerializeField] BoxCollider collider;
 
     // Update is called once per frame
     void Update()
@@ -16,4 +17,10 @@ public class EnemyProjectile : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    void OnCollisionEnter()
+    {
+        Destroy(gameObject);
+    }
 }
+
